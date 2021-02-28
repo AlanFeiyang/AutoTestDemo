@@ -1,0 +1,83 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+# iOS进行的操作
+platform :ios do
+  desc "应用商店"
+  # 在执行lane之前进行的操作，例如我们在每次打包之前都执行一次pod install
+  #before_all do
+    # faselane中pod install的操作
+    #cocoapods
+  #end
+
+  # 打包的lane操作，我们可以配置多个lane来打不同环境的包
+  lane :release do
+      automatic_code_signing(
+        # 工程文件所在路径
+        path:"AutoTestDemo.xcodeproj",
+        # 是否使用自动签名，这里如果是打包的话应该一般都为false吧，默认也是false
+        use_automatic_signing:false,
+        team_id:"MD3QMYL4C6",
+        targets:"AutoTestDemo",
+        # 用哪种方式打包“iPhone Develop”还是“iPhone Distribution”
+        code_sign_identity:"iPhone Distribution",
+        # 描述文件名称， 也就是使用哪个描述文件打包
+        # profile_name:"autoBuild_Dis"
+    )
+
+    currentTime = Time.new.strftime("%Y-%m-%d-%H-%M")
+    outputDirectory = "./build/#{currentTime}"
+    logDirectory = "#{outputDirectory}/fastlanelog"
+
+    gym(
+        # 打包方式，enterprise, ad-hoc,app-store,development
+        export_method: "app-store",
+        scheme: "AutoTestDemo",
+        # pod 生成的workspace文件
+        workspace:"AutoTestDemo.xcworkspace",
+        # 输出文件夹
+        output_directory: outputDirectory,
+        # 输出包名称
+        output_name:"AutoTestDemo.ipa",
+        # 打包前是否clean
+        clean:true,
+        silent:true,
+        # 打包的配置 Debug Release
+        configuration:"Release",
+        # 打包日志输出文件夹
+        buildlog_path:logDirectory,
+        # 打包证书
+        codesigning_identity:'Apple Distribution: xiaomei he (MD3QMYL4C6)',
+        # Xcode 9 默认不允许访问钥匙串的内容,必须要设置此项才可以，运行过程可能会提示是否允许访问钥匙串，需要输入电脑密码
+        export_xcargs: "-allowProvisioningUpdates",
+ 
+    )
+    archive_path="Published succeed:/Users/alan/Desktop/build/#{currentTime}/AutoTestDemo.ipa"
+    
+    upload_to_app_store
+    puts "#{archive_path}"
+  end
+
+  # 当lane执行完成之后进行哪些操作
+  after_all do |lane|
+
+  end
+
+  error do |lane, exception|
+  end
+
+end

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E7ACD16F25EB8F4200259996 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ACD16E25EB8F4200259996 /* AppDelegate.swift */; };
-		E7ACD17125EB8F4200259996 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ACD17025EB8F4200259996 /* SceneDelegate.swift */; };
 		E7ACD17325EB8F4200259996 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ACD17225EB8F4200259996 /* ViewController.swift */; };
 		E7ACD17625EB8F4200259996 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7ACD17425EB8F4200259996 /* Main.storyboard */; };
 		E7ACD17825EB8F4300259996 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7ACD17725EB8F4300259996 /* Assets.xcassets */; };
@@ -23,7 +22,6 @@
 		B788324BE23CBEA066F0610C /* Pods-AutoTestDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoTestDemo.release.xcconfig"; path = "Target Support Files/Pods-AutoTestDemo/Pods-AutoTestDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E7ACD16B25EB8F4200259996 /* AutoTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7ACD16E25EB8F4200259996 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7ACD17025EB8F4200259996 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E7ACD17225EB8F4200259996 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E7ACD17525EB8F4200259996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7ACD17725EB8F4300259996 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				E7ACD16E25EB8F4200259996 /* AppDelegate.swift */,
-				E7ACD17025EB8F4200259996 /* SceneDelegate.swift */,
 				E7ACD17225EB8F4200259996 /* ViewController.swift */,
 				E7ACD17425EB8F4200259996 /* Main.storyboard */,
 				E7ACD17725EB8F4300259996 /* Assets.xcassets */,
@@ -195,7 +192,6 @@
 				E7ACD17325EB8F4200259996 /* ViewController.swift in Sources */,
 				E7ACD18E25EB9A0100259996 /* File.swift in Sources */,
 				E7ACD16F25EB8F4200259996 /* AppDelegate.swift in Sources */,
-				E7ACD17125EB8F4200259996 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +341,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = MD3QMYL4C6;
 				INFOPLIST_FILE = AutoTestDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -370,7 +366,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = MD3QMYL4C6;
 				INFOPLIST_FILE = AutoTestDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

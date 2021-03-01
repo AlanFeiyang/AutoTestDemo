@@ -20,23 +20,13 @@ platform :ios do
   desc "应用商店"
   # 在执行lane之前进行的操作，例如我们在每次打包之前都执行一次pod install
   before_all do
-    # faselane中pod install的操作
-    #cocoapods
+  
     ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "iigb-bidb-oxkp-vizr"
     ENV["FASTLANE_SESSION"] = '---\n- !ruby/object:HTTP::Cookie\n  name: DES58bf94c5f3fa6cedf7229640259afcd2f\n  value: HSARMTKNSRVXWFlalX0naMwFVWlMBDxs6hMRBU9eR1G6VDeKdI+NveMp5vElFdRTIbf4v26ZSa7+eOyxiDMZf2aigK9+H9QY35bfzfvMirVC90ls+b6gtC/UKVK27sqwHn1WlK6fSRVX\n  domain: idmsa.apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: 2592000\n  created_at: 2021-02-28 12:08:12.756024000 +08:00\n  accessed_at: 2021-03-01 09:31:39.849986000 +08:00\n- !ruby/object:HTTP::Cookie\n  name: myacinfo\n  value: DAWTKNV247cf5bc7576fa02cf43bf482e8643a0f0cefd38e0afdc48feea9c62495d4be3bc1de7d8abdcf57db157b5bc655b57f5e29f09eacadfc9ec512d11fbd9c7b8da8157349684ca7a881cc5cd4f2061c801976cc8584aac589c098f998038d78af93f79b6a3e1c2e3fb705a60461c9db3ea8ffc23163711c23e62b9310d8cb95389b67450009db3879c2a775ef1577fe9b14f5f684e02b9c15fd0a3b594826c0e0702c015bf45c9dd93de777775752131b609f5d7495aa435b81d92871f1febd16aae4129c86fa7365ed47625b71f5813142f676e2aa3ebed7922bfe30a8ef33aeac76d7659d3219e3b0266892d19abb12690258a0d73ba6c34f3eb8f84f44d17772f38ee8017c3d8ad8883c4cab129f8fca30623361643838663839623636663662313131663038346562346365393539356238356235336665MVRYV2\n  domain: apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: \n  created_at: 2021-03-01 09:31:41.544629000 +08:00\n  accessed_at: 2021-03-01 09:31:41.545544000 +08:00\n- !ruby/object:HTTP::Cookie\n  name: dqsid\n  value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTQ1NjIzMDEsImp0aSI6IkpfMWpYaXNrZ1REUlVzUHRpX3RYQ2cifQ.n-m1LMuCHZH3HVjDmeXvF5ckl1jcSTeeM_ui_uljkeY\n  domain: appstoreconnect.apple.com\n  for_domain: false\n  path: "/"\n  secure: true\n  httponly: true\n  expires: \n  max_age: 1800\n  created_at: &1 2021-03-01 09:31:42.692436000 +08:00\n  accessed_at: *1\n'
   end
 
-  # 代码
-  sh 'git checkout origin:main'
-  git_pull
-  increment_build_number_in_plist(target: "AutoTestDemo")
-  build_number = get_build_number_from_plist(target: "AutoTestDemo")
-  git_commit(path:".", message:"Bump build to #{build_number}")
-  sh 'git push origin HEAD:main'
-
-  increment_build_number({
-    build_number: Latest_appStore_build_number + 1
-    })
+  
+  increment_build_number(xcodeproj: "AutoTestDemo")
 
   # 打包的lane操作，我们可以配置多个lane来打不同环境的包
   lane :release do
